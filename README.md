@@ -32,3 +32,43 @@ graph TD
 
 ## Technology Stack that im thinking to use :
 
+```mermaid
+
+flowchart LR
+    Frontend["Frontend 🖥️
+    - Next.js 14
+    - TypeScript
+    - Tailwind CSS
+    - Zustand/Redux
+    - React Query"]
+    
+    Backend["Backend 🗄️
+    - Node.js/Express
+    - tRPC/GraphQL
+    - Prisma ORM
+    - WebSocket
+    - Redis"]
+    
+    Database["Database 💾
+    - PostgreSQL
+    - MongoDB
+    - Redis Cache"]
+    
+    Security["Security 🔐
+    - JWT Authentication
+    - End-to-End Encryption
+    - WebRTC
+    - OAuth"]
+    
+    RealTime["Real-Time 📡
+    - Socket.io
+    - WebRTC
+    - Server-Sent Events"]
+    
+    Deploy["DevOps 🚀
+    - Docker
+    - Kubernetes
+    - GitHub Actions
+    - AWS/Vercel"]
+```
+
