@@ -30,5 +30,5 @@ graph TD
 ```
 
 
-## Technology Stack that im thingking to use :
+## Technology Stack that im thinking to use :
 
