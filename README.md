@@ -28,3 +28,7 @@ graph TD
     G[User Management] --> B
     H[Notification Service] --> C
 ```
+
+
+## Technology Stack that im thingking to use :
+
