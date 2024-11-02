@@ -35,40 +35,10 @@ graph TD
 ```mermaid
 
 flowchart LR
-    Frontend["Frontend 🖥️
-    - Next.js 14
-    - TypeScript
-    - Tailwind CSS
-    - Zustand/Redux
-    - React Query"]
-    
-    Backend["Backend 🗄️
-    - Node.js/Express
-    - tRPC/GraphQL
-    - Prisma ORM
-    - WebSocket
-    - Redis"]
-    
-    Database["Database 💾
-    - PostgreSQL
-    - MongoDB
-    - Redis Cache"]
-    
-    Security["Security 🔐
-    - JWT Authentication
-    - End-to-End Encryption
-    - WebRTC
-    - OAuth"]
-    
-    RealTime["Real-Time 📡
-    - Socket.io
-    - WebRTC
-    - Server-Sent Events"]
-    
-    Deploy["DevOps 🚀
-    - Docker
-    - Kubernetes
-    - GitHub Actions
-    - AWS/Vercel"]
+    Frontend["Frontend 🖥️<br>- Next.js 14<br>- TypeScript<br>- Tailwind CSS<br>- Zustand/Redux<br>- React Query"] --> Backend["Backend 🗄️<br>- Node.js/Express<br>- tRPC/GraphQL<br>- Prisma ORM<br>- WebSocket<br>- Redis"]
+    Backend --> Database["Database 💾<br>- PostgreSQL<br>- MongoDB<br>- Redis Cache"]
+    Backend --> Security["Security 🔐<br>- JWT Authentication<br>- End-to-End Encryption<br>- WebRTC<br>- OAuth"]
+    Backend --> RealTime["Real-Time 📡<br>- Socket.io<br>- WebRTC<br>- Server-Sent Events"]
+    Backend --> Deploy["DevOps 🚀<br>- Docker<br>- Kubernetes<br>- GitHub Actions<br>- AWS/Vercel"]
 ```
 
