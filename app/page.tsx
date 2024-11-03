@@ -1,12 +1,11 @@
+import { LandinPage } from "@/components/Landind-Page";
 
 
 export default function Home() {
   return (
     <>
-    <div>
-      hello duniya
-    </div>
     
+    <LandinPage/>
     </>
   );
 }
