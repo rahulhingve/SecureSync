@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useRef, useEffect } from 'react'
-import { useMotionValue, useSpring, useInView } from 'framer-motion'
+import {  useInView } from 'framer-motion'
 import { cn } from '@/lib/utils'
 
 export const Vortex = ({
