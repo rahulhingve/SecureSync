@@ -286,6 +286,7 @@ function Footer() {
         </div>
         <div className="mt-12 flex justify-between items-center">
           <p className="text-gray-400">&copy; 2024 SecureSync. All rights reserved.</p>
+          <p>Made With ❤️ by Rahul</p>
           <div className="flex space-x-4">
             <a href="#" className="text-gray-400 hover:text-white transition-colors">
               <span className="sr-only">Facebook</span>
