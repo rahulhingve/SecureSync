@@ -2,7 +2,6 @@
 
 import { useEffect } from 'react'
 import { motion, useAnimation } from 'framer-motion'
-import { Vortex } from './ui/Vortex'
 import { TypewriterEffect } from './ui/TypewriterEffect'
 import { BackgroundBeams } from './ui/BackgroundBeams'
 import { InfiniteMovingCards } from './ui/InfiniteMovingCards'
