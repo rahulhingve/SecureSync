@@ -7,6 +7,7 @@ import { TypewriterEffect } from './ui/TypewriterEffect'
 import { BackgroundBeams } from './ui/BackgroundBeams'
 import { InfiniteMovingCards } from './ui/InfiniteMovingCards'
 import { Lock, MessageSquare, Smartphone, Laptop } from 'lucide-react'
+import { VortexDemoSecond } from './ui/VortexDemo-2nd'
 
 export function LandinPage() {
   const controls = useAnimation()
@@ -16,7 +17,7 @@ export function LandinPage() {
   }, [controls])
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white overflow-hidden">
+    <div className="min-h-screen bg-black text-white overflow-hidden">
       <HeroSection />
       <FeaturesSection />
       <HowItWorksSection />
@@ -29,13 +30,14 @@ export function LandinPage() {
 
 function HeroSection() {
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      <Vortex
+    <section className=" h-screen flex items-center justify-center overflow-hidden">
+      <VortexDemoSecond className="absolute inset-0 z-0"/>
+      {/* <Vortex
         className="absolute inset-0 z-0"
         colors={['#1e3a8a', '#3730a3', '#5b21b6']}
         density={0.8}
         speed={0.5}
-      />
+      /> */}
       <div className="relative z-10 text-center">
         <TypewriterEffect
           text="Secure Your Conversations with SecureSync"
@@ -186,6 +188,8 @@ function TestimonialsSection() {
       title: "Security Analyst",
       avatar: "/placeholder.svg?height=100&width=100"
     },
+    
+  
   ]
 
   return (
