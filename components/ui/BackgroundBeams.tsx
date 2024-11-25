@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 
 export const BackgroundBeams = ({
   className,
-  colors = ['#ff0000', '#00ff00', '#0000ff'],
+  colors = ['#df74f1', '#ffffff', '#ffffff'],
   speed = 1,
 }: {
   className?: string
@@ -33,7 +33,7 @@ export const BackgroundBeams = ({
     window.addEventListener('resize', resizeCanvas)
 
     const beams: Beam[] = []
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 20; i++) {
       beams.push(new Beam(canvas, colors, speed))
     }
 
@@ -44,7 +44,7 @@ export const BackgroundBeams = ({
     }
 
     animate()
-    controls.start({ opacity: 1 })
+    controls.start({ opacity: 1000 })
 
     return () => {
       window.removeEventListener('resize', resizeCanvas)
@@ -74,7 +74,7 @@ class Beam {
   constructor(canvas: HTMLCanvasElement, colors: string[], speed: number) {
     this.x = Math.random() * canvas.width
     this.y = Math.random() * canvas.height
-    this.width = Math.random() * 10 + 5
+    this.width = Math.random() * 10 + 10
     this.height = canvas.height
     this.speed = (Math.random() + 0.5) * speed
     this.color = colors[Math.floor(Math.random() * colors.length)]
@@ -88,7 +88,7 @@ class Beam {
     }
 
     ctx.fillStyle = this.color
-    ctx.globalAlpha = 0.1
+    ctx.globalAlpha = 0.5
     ctx.fillRect(this.x, this.y, this.width, this.height)
   }
 }
