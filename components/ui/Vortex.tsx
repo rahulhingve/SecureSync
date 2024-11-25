@@ -36,7 +36,7 @@ export const Vortex = ({
     resizeCanvas()
     window.addEventListener('resize', resizeCanvas)
 
-    const particleCount = Math.floor(200 * density)
+    const particleCount = Math.floor(100 * density)
     for (let i = 0; i < particleCount; i++) {
       particles.push(new Particle(canvas, colors || defaultColors, speed))
     }
@@ -73,7 +73,7 @@ class Particle {
   constructor(canvas: HTMLCanvasElement, colors: string[], speed: number) {
     this.x = Math.random() * canvas.width
     this.y = Math.random() * canvas.height
-    this.size = Math.random() * 3 + 1
+    this.size = Math.random() * 10 + 1
     this.speedX = (Math.random() - 0.5) * speed
     this.speedY = (Math.random() - 0.5) * speed
     this.color = colors[Math.floor(Math.random() * colors.length)]
