@@ -8,8 +8,13 @@ import { InfiniteMovingCards } from './ui/InfiniteMovingCards'
 import { Lock, MessageSquare, Smartphone, Laptop } from 'lucide-react'
 import { VortexDemoSecond } from './ui/VortexDemo-2nd'
 
+import { signIn } from 'next-auth/react'
+
+
+
 export function LandinPage() {
   const controls = useAnimation()
+
 
   useEffect(() => {
     controls.start('visible')
@@ -28,9 +33,11 @@ export function LandinPage() {
 }
 
 function HeroSection() {
+  
+
   return (
     <section className=" h-screen flex items-center justify-center overflow-hidden">
-      <VortexDemoSecond className="absolute inset-0 z-0"/>
+      <VortexDemoSecond className="absolute inset-0 z-0" />
       {/* <Vortex
         className="absolute inset-0 z-0"
         colors={['#1e3a8a', '#3730a3', '#5b21b6']}
@@ -47,15 +54,20 @@ function HeroSection() {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 4, duration: 1 }}
+          transition={{ delay: 3, duration: 1 }}
           className="text-xl md:text-2xl mb-8"
         >
           Experience unparalleled privacy and real-time messaging
         </motion.p>
         <motion.button
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 3.1, duration: 1 }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           className="px-8 py-3 bg-purple-600 rounded-full text-lg font-semibold hover:bg-purple-700 transition-all duration-300 shadow-lg hover:shadow-purple-500/50"
+          // onClick={()=> router.push('/dashboard')}
+          onClick={() => signIn()}
         >
           Get Started
         </motion.button>
@@ -187,8 +199,8 @@ function TestimonialsSection() {
       title: "Security Analyst",
       avatar: "/placeholder.svg?height=100&width=100"
     },
-    
-  
+
+
   ]
 
   return (
