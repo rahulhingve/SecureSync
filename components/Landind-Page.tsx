@@ -7,8 +7,11 @@ import { BackgroundBeams } from './ui/BackgroundBeams'
 import { InfiniteMovingCards } from './ui/InfiniteMovingCards'
 import { Lock, MessageSquare, Smartphone, Laptop } from 'lucide-react'
 import { VortexDemoSecond } from './ui/VortexDemo-2nd'
+import { useRouter } from 'next/navigation'
+import { SessionProvider, useSession } from 'next-auth/react'
+import { authOptions } from '@/app/api/auth/[...nextauth]/options'
 
-import { signIn } from 'next-auth/react'
+// import { signIn } from 'next-auth/react'
 
 
 
@@ -22,7 +25,10 @@ export function LandinPage() {
 
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden">
-      <HeroSection />
+      <SessionProvider>
+        <HeroSection />
+      </SessionProvider>
+
       <FeaturesSection />
       <HowItWorksSection />
       <TestimonialsSection />
@@ -32,9 +38,10 @@ export function LandinPage() {
   )
 }
 
-function HeroSection() {
-  
-
+ function HeroSection() {
+  const router = useRouter();
+  const {data: session} =  useSession(authOptions);
+  // console.log(session)
   return (
     <section className=" h-screen flex items-center justify-center overflow-hidden">
       <VortexDemoSecond className="absolute inset-0 z-0" />
@@ -59,6 +66,7 @@ function HeroSection() {
         >
           Experience unparalleled privacy and real-time messaging
         </motion.p>
+
         <motion.button
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -66,10 +74,11 @@ function HeroSection() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           className="px-8 py-3 bg-purple-600 rounded-full text-lg font-semibold hover:bg-purple-700 transition-all duration-300 shadow-lg hover:shadow-purple-500/50"
-          // onClick={()=> router.push('/dashboard')}
-          onClick={() => signIn()}
+          onClick={() => router.push('/login')}
+        // onClick={() => signIn()}
         >
-          Get Started
+          {session? "Go to Chat" :"Get Started"}
+          
         </motion.button>
       </div>
     </section>
