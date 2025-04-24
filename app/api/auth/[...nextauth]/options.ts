@@ -1,19 +1,29 @@
 import type { NextAuthConfig } from "next-auth";
 import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "@/lib/db";
 
-const prisma = new PrismaClient();
+// Extend the next-auth session type
+declare module "next-auth" {
+  interface Session {
+    user: {
+      id: string;
+      name?: string | null;
+      email?: string | null;
+      image?: string | null;
+    };
+  }
+}
 
 export const authOptions: NextAuthConfig = {
   providers: [
     GitHubProvider({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
+      clientId: process.env.GITHUB_ID as string,
+      clientSecret: process.env.GITHUB_SECRET as string,
     }),
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     }),
   ],
   callbacks: {
@@ -27,7 +37,7 @@ export const authOptions: NextAuthConfig = {
         where: { email: user.email },
         create: {
           email: user.email,
-          name: user.name,
+          name: user.name || 'User',
           auth_type: account.provider === "google" ? "Google" : "Github",
         },
         update: {
@@ -41,7 +51,7 @@ export const authOptions: NextAuthConfig = {
       if (session.user && user) {
         session.user.id = user.id;
       } else if (session.user && token) {
-        session.user.id = token.sub;
+        session.user.id = token.sub as string;
       }
       return session;
     },
